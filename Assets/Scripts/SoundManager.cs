@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         StartButton.onClick.AddListener(() =>
         {
             int.TryParse(Count.text, out PlayCount);
@@ -65,5 +66,18 @@ public class SoundManager : MonoBehaviour
         {
             _Playing();
         }
+        if (Application.platform == RuntimePlatform.Android)
+
+        {
+
+            if (Input.GetKey(KeyCode.Escape))
+
+            {
+                Application.Quit();
+            }
+        }
+
     }
+
+
 }
